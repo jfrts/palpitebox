@@ -33,8 +33,6 @@ const Opiniao = () => {
   }
 
   const inputChanged = event => {
-    console.log(event);
-
     setForm({
       ...form,
       [event.target.name]: event.target.value
@@ -60,28 +58,28 @@ const Opiniao = () => {
 
           <div className="my-8">
             <label htmlFor="Nome" className={label}>Nome:</label>
-            <input type="text" id="Nome" name="Nome" onChange={inputChanged} value={form.Nome} className={input} />
+            <input type="text" id="Nome" name="Nome" onChange={inputChanged} value={form.Nome} required className={input} />
 
             <label htmlFor="Email" className={label}>E-mail:</label>
-            <input type="text" id="Email" name="Email" onChange={inputChanged} value={form.Email} className={input} />
+            <input type="text" id="Email" name="Email" onChange={inputChanged} value={form.Email} required className={input} />
 
             <label htmlFor="WhatsApp" className={label}>WhatsApp:</label>
-            <input type="text" id="WhatsApp" name="WhatsApp" onChange={inputChanged} value={form.WhatsApp} className={input} />
+            <input type="text" id="WhatsApp" name="WhatsApp" onChange={inputChanged} value={form.WhatsApp} required className={input} />
 
             <label htmlFor="Avaliação" className={label}>Avaliação:</label>
             <div className="flex gap-2 items-center max-w-full">
               {
                 ratingValues.map(value => (
                   <>
-                    <input type="radio" id={value} name="Avaliação" onChange={inputChanged} value={value} />
-                    <label for={value} className="mr-4">{value}</label>
+                    <input type="radio" id={value} name="Avaliação" onChange={inputChanged} value={value} required />
+                    <label className="mr-4">{value}</label>
                   </>
                 ))
               }
             </div>
 
             <label htmlFor="Opinião" className={label}>Deixe aqui sua opinião / sugestão:</label>
-            <textarea rows={5} id="Opinião" name="Opinião" onChange={inputChanged} value={form["Opinião"]} className={input} />
+            <textarea rows={5} id="Opinião" name="Opinião" onChange={inputChanged} value={form["Opinião"]} required className={input} />
 
             <button onClick={save} className={btn}>Enviar</button>
           </div>

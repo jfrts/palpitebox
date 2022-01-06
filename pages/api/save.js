@@ -30,24 +30,34 @@ export default async (req, res) => {
 
     const sheet = spreadsheetDocument.sheetsByTitle['Opiniões'];
 
-    await sheet.addRow({
-      Data: `${moment().format('DD/MM/YY - HH:mm')}h`,
-      Nome: formData.Nome,
-      Email: formData.Email,
-      WhatsApp: formData.WhatsApp,
-      'Promoção': promotionMessage,
-      Presente: gift,
-      'Avaliação': Number(formData['Avaliação']),
-      'Opinião': formData['Opinião']
-    });
+    if (
+      formData.Nome !== '' &&
+      formData.Email !== '' &&
+      formData.WhatsApp !== '' &&
+      formData['Avaliação'] !== '' &&
+      formData['Opinião'] !== ''
+    ) {
 
-    res.end(JSON.stringify({
-      showGift: gift !== '',
-      gift,
-      promotionMessage
-    }))
+      await sheet.addRow({
+        Data: `${moment().format('DD/MM/YY - HH:mm')}h`,
+        Nome: formData.Nome,
+        Email: formData.Email,
+        WhatsApp: formData.WhatsApp,
+        'Promoção': promotionMessage,
+        Presente: gift,
+        'Avaliação': Number(formData['Avaliação']),
+        'Opinião': formData['Opinião']
+      });
 
-    res.end(req.body);
+      res.end(JSON.stringify({
+        showGift: gift !== '',
+        gift,
+        promotionMessage
+      }))
+    } else {
+      res.end('Error');
+    }
+
   } catch (err) {
     res.end('Error');
   }
