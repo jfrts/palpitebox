@@ -1,11 +1,7 @@
 import { GoogleSpreadsheet } from 'google-spreadsheet';
+import { fromBase64 } from '../../utils/base64';
 
 const spreadsheetDocument = new GoogleSpreadsheet(process.env.SPREADSHEET_ID);
-
-const fromBase64 = value => {
-  const buff = new Buffer(value, 'base64');
-  return buff.toString('ascii');
-}
 
 export default async (req, res) => {
   try {
