@@ -5,7 +5,7 @@ import PageTitle from '../components/PageTitle';
 const title = `text-center text-2xl font-bold mb-4`;
 const label = `block tracking-wide text-gray-800 text-sm mb-1 mt-6`;
 const input = `appearance-none block w-full bg-gray-100 text-gray-900 border border-gray-300 shadow-xs rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-50`;
-const btn = `p-4 mt-12 w-96 text-center bg-gray-900 text-gray-50 block mx-auto transition-all duration-100 ease-in hover:bg-gray-800 shadow-lg`;
+const btn = `p-4 max-w-full mt-12 w-96 text-center bg-gray-900 text-gray-50 block mx-auto transition-all duration-100 ease-in hover:bg-gray-800 shadow-lg`;
 
 const Opiniao = () => {
   const [form, setForm] = React.useState({
@@ -69,7 +69,7 @@ const Opiniao = () => {
             <input type="text" id="WhatsApp" name="WhatsApp" onChange={inputChanged} value={form.WhatsApp} className={input} />
 
             <label htmlFor="Avaliação" className={label}>Avaliação:</label>
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-center max-w-full">
               {
                 ratingValues.map(value => (
                   <>

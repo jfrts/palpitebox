@@ -5,7 +5,7 @@ import PageTitle from '../components/PageTitle';
 
 // Tailwind CSS classes 
 const title = `text-center text-2xl font-bold mb-4`;
-const btn = `p-4 mt-12 w-96 text-center bg-gray-900 text-gray-50 block mx-auto transition-all duration-100 ease-in hover:bg-gray-800 shadow-lg`;
+const btn = `p-4 max-w-full mt-12 w-96 text-center bg-gray-900 text-gray-50 block mx-auto transition-all duration-100 ease-in hover:bg-gray-800 shadow-lg`;
 const promo_text = `mt-12 text-center`;
 
 // useSWR Fetcher
